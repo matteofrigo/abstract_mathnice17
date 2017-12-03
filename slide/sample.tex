@@ -165,16 +165,21 @@
 		
 		\begin{frame}
 		\frametitle{Proximal operator}
-		$\Gamma_0(\mathcal{H}) = \left\{g:\mathcal{H}\to\RR\text{ l.s.c. and cvx with } \dom(g)\ne\emptyset\right\}$
+		$\Gamma_0(\rd) = \left\{g:\rd\to\RR\text{ l.s.c. and cvx with } \dom(g)\ne\emptyset\right\}$
 		\quad \\ \quad \\
 		\begin{definition}[Proximal Operator]
-		Let $g\in\Gamma_0(\RR^N)$. For every $x \in \RR^N$, the minimisation problem
+		Let $g\in\Gamma_0(\rd)$. For every $x \in \rd$, the minimisation problem
 		\begin{equation}
 		\nonumber
-		\argmin_{y\in\RR^N} g(y) + \frac{1}{2}\normtwosq{x-y}
+		\argmin_{y\in\rd} \frac{1}{2}\normtwosq{x-y} + g(y)
 		\end{equation}
 		admits a unique solution called $\prox{g}{x}$.
 		\end{definition}
+		\pause
+		\quad \\ \quad \\ 
+		\begin{center}
+		\textbf{$\Prox$ is single valued}
+		\end{center}
 		\end{frame}
 
 		\begin{frame}
@@ -184,7 +189,7 @@
 		\nonumber g(x,y) = \phi(x)+\psi(y) = \prox{\phi}{x} + \prox{\psi}{y}
 		\end{equation}
 		
-		{Nonexpansiveness}:
+		{Firmly non-expansive}:
 		\begin{equation}
 		\nonumber \normtwosq{\prox{g}{x}-\prox{g}{y}} \le \left(x-y\right)^T\left(\prox{g}{x} - \prox{g}{y}\right)
 		\end{equation}
@@ -196,7 +201,7 @@
 		\end{frame}
 		
 		\begin{frame}
-		\frametitle{Properties of $\Prox$: part 2}
+		\frametitle{Moreau decomposition}
 		\begin{definition}
 		The convex conjugate of $g:X\to\RR$ is $g^*:X^*\to\RR$
 		\begin{equation}
@@ -224,7 +229,7 @@
 		A point $x^*\in \RR^n$ is a minimiser of $g$ if and only if 
 		\end{center}
 		\begin{equation}
-		\nonumber \prox{g}{x^*} = x^*.
+		\nonumber \prox{g}{x^*} = x^*
 		\end{equation}
 		\end{frame}
 		
