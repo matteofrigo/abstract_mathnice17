@@ -82,6 +82,7 @@
 	\item Supervisor: Rachid Deriche
 	\item Inria - Athena Project Team
 	\item ERC Computational Brain Connectivity Mapping 
+	\item M.Sc Mathematics @ Verona
 	\end{itemize}
 	\end{minipage}
 	\end{frame}
@@ -175,11 +176,6 @@
 		\end{equation}
 		admits a unique solution called $\prox{g}{x}$.
 		\end{definition}
-		\pause
-		\quad \\ \quad \\ 
-		\begin{center}
-		\textbf{$\Prox$ is single valued}
-		\end{center}
 		\end{frame}
 
 		\begin{frame}
@@ -226,7 +222,9 @@
 		\begin{frame}
 		\frametitle{Key property}
 		\begin{center}
-		A point $x^*\in \RR^n$ is a minimiser of $g$ if and only if 
+		A point $x^*\in \RR^n$ is a minimiser of $g$
+		
+		 if and only if 
 		\end{center}
 		\begin{equation}
 		\nonumber \prox{g}{x^*} = x^*
@@ -424,11 +422,11 @@
 		\begin{frame}
 		\frametitle{Smoothing splines}
 		\begin{equation}
-		\nonumber x^* = \argmin_{x\in \rd}\onehalf\normtwosq{Ax-y} + \lambda\norm{\Delta x}_2^2
+		\nonumber x^* = \argmin_{x\in \rd}\onehalf\normtwosq{f(x)-y} + \lambda\norm{\Delta x}_2^2
 		\end{equation}
 		\begin{itemize}
 		\item $\lambda\to 0$ : interpolating spline
-		\item $\lambda\to\infty$ : least square estimate
+		\item $\lambda\to\infty$ : linear least squares estimate
 		\end{itemize}
 		\end{frame}
 		
@@ -665,7 +663,7 @@
 		\item 96 distinct tractography pipelines
 		\item \emph{``most algorithms routinely extracted many false positive bundles''}
 		\item \emph{``Tractography identifies more invalid than valid bundles''}
-		\item \textbf{``Tractography is fundamentally ill‐posed''}
+		\item \textbf{``Tractography is fundamentally ill‐-posed''}
 		\end{itemize}
 		\end{frame}
 		
@@ -771,10 +769,27 @@
 		\item The solution can be obtained via proximal splitting methods
 		\pause\item It works :)
 		\end{itemize}
-		\quad \\ \quad \\ \quad \\ \quad \\
+
 		\pause
 		\begin{center}
-		{\Huge \textbf{\smiley Thank you \smiley}}
+		{\LARGE \textbf{ Grazie per l'attenzione}}
+		
+		\begin{tikzpicture}[scale=.25]
+		\begin{scope}[rotate=10]
+		    \begin{scope}[every path/.style={fill=black}]
+		        \draw (-.2,0) to [bend right] (.2,0) -- (.2,8) to [bend left] (-.2,8) -- cycle;
+		        \draw (0,8) circle (.4) ;
+		\end{scope}
+		\begin{scope}
+		\clip [rounded corners] (.2,7.6) to [out=60 ,in=180] coordinate[pos=.95] (h1) (3,8) to [out=0, in = 200]  coordinate[pos=.5] (h2) (8,9) coordinate(h3) to [out=-85 ,in=85] (7.5,4) coordinate(b3) to [out=220,in=0] coordinate[pos=.85] (b2)(5,3)  to [out=180,in=10]  coordinate[pos=.5] (b1)(.2,3) to [out =85,in=-80]  (.2,7.6) ;
+		\fill[green] (-1,9) -- (h1) to[out=-85,in=80] (b1) -- (0,0) --cycle;     
+		\fill[red] (h2) to[out=-85,in=80] (b2) -- ++(0,-0.75) -- ([yshift=-1.25]b3) --(b3) to  [out=85 ,in=-85]  (h3) -- cycle  ; 
+		\end{scope} 
+		\draw[thick] [rounded corners] (.2,7.6) to [out=60 ,in=180] coordinate[pos=.95] (h1) (3,8) to [out=0, in = 200]  coordinate[pos=.5] (h2) (8,9) coordinate(h3) to [out=-85 ,in=85] (7.5,4) coordinate(b3) to [out=220,in=0] coordinate[pos=.85] (b2)(5,3)  to [out=180,in=10]  coordinate[pos=.5] (b1)(.2,3) to [out =85,in=-80]  (.2,7.6) ;      
+		\draw[thick]  (h1) to[out=-85,in=80] (b1); 
+		\draw[thick]  (h2) to[out=-85,in=80] (b2);  
+		\end{scope} 
+		\end{tikzpicture} 
 		\end{center}
 		\end{frame}
 		
